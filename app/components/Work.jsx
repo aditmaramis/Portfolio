@@ -27,7 +27,7 @@ const Work = (isDarkMode) => {
         initial={{opacity: 0}}
         whileInView={{opacity: 1}}
         transition={{delay: 0.7, duration: 0.5}}
-        className='text-center max-w-2xl mx-auto mt-5 mb-12 px-10'>Bro ipsum dolor sit amet greasy dust on crust backside rig caballerial method couloir gondy huck white room flow bro bonk hurl carcass 360. Washboard bro epic ripper OTB 360 smear chain suck pinner BB huck ripper.
+        className='text-center max-w-2xl mx-auto mt-5 mb-12 px-10'>my capstone projects reflect how I love turning everyday challenges into digital solutions. i built an event management website that helps organizers and attendees connect easily through a clean, interactive interface. i also created an online grocery app where users can browse, add to cart, and purchase groceries effortlessly — all built from scratch with modern full-stack technologies.
         </motion.p>
 
         <motion.div

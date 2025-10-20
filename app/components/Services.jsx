@@ -26,7 +26,7 @@ const Services = () => {
         initial={{opacity: 0}}
         whileInView={{opacity: 1}}
         transition={{duration: 0.5, delay: 0.7}}
-        className='text-center max-w-2xl mx-auto mt-5 mb-12 px-10'>i offer end-to-end digital solutions including web development, mobile app development, and UI/UX design. i also provide custom graphic design services to help brands stand out with visually compelling and user-friendly experiences.
+        className='text-center max-w-2xl mx-auto mt-5 mb-12 px-10'>i offer end-to-end digital solutions including web development and UI/UX design. i also provide custom graphic design services to help brands stand out with visually compelling and user-friendly experiences. my journey from hotel floors to full-stack frameworks taught me that every detail matters — in service, and in software.
         </motion.p>
 
         <motion.div

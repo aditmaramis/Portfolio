@@ -1,5 +1,5 @@
 import user_image from './user-image.webp';
-import user_image_dark from './user-image-dark.webp';
+import user_image_dark from './user-image-dark.png';
 import code_icon from './code-icon.png';
 import code_icon_dark from './code-icon-dark.png';
 import edu_icon from './edu-icon.png';
@@ -7,10 +7,12 @@ import edu_icon_dark from './edu-icon-dark.png';
 import project_icon from './project-icon.png';
 import project_icon_dark from './project-icon-dark.png';
 import vscode from './vscode.png';
-import firebase from './firebase.png';
-import figma from './figma.png';
+import chromedt from './chromedt.jpeg';
+import bootstrap from './bootstrap.png';
 import git from './git.png';
-import mongodb from './mongodb.png';
+import tailwind from './tailwind.png';
+import postgresql from './postgresql.png';
+import postman from './postman.png'
 import right_arrow_white from './right-arrow-white.png';
 import logo from './logo.png';
 import logo_closing from './logo_closing.png';
@@ -23,6 +25,7 @@ import download_icon from './download-icon.png';
 import hand_icon from './hand-icon.png';
 import header_bg_color from './header-bg-color.png';
 import moon_icon from './moon_icon.png';
+import nodejs from './nodejs.png';
 import sun_icon from './sun_icon.png';
 import arrow_icon from './arrow-icon.png';
 import arrow_icon_dark from './arrow-icon-dark.png';
@@ -49,10 +52,12 @@ export const assets = {
     project_icon,
     project_icon_dark,
     vscode,
-    firebase,
-    figma,
+    chromedt,
+    bootstrap,
     git,
-    mongodb,
+    tailwind,
+    postgresql,
+    postman,
     right_arrow_white,
     logo,
     logo_closing,
@@ -65,6 +70,7 @@ export const assets = {
     hand_icon,
     header_bg_color,
     moon_icon,
+    nodejs,
     sun_icon,
     arrow_icon,
     arrow_icon_dark,
@@ -106,8 +112,7 @@ export const workData = [
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'web design', description: 'building and programming website', link: '' },
-    { icon: assets.mobile_icon, title: 'mobile app', description: 'mobile app development involves creating software for mobile devices', link: '' },
+    { icon: assets.web_icon, title: 'full stack web app', description: 'building and programming website', link: '' },
     { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience', link: '' },
     { icon: assets.graphics_icon, title: 'graphics design', description: 'creative design solutions to enhance visual communication', link: '' },
 ]
@@ -115,9 +120,9 @@ export const serviceData = [
 export const infoList = [
     { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'languages', description: 'HTML, CSS, JavaScript React Js, Next Js' },
     { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'education', description: 'full stack web development' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'projects', description: 'built more than 5 projects' }
+    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'projects', description: 'built a couple of capstone projects, more on the way..' }
 ];
 
 export const toolsData = [
-    assets.vscode, assets.firebase, assets.mongodb, assets.figma, assets.git
+    assets.vscode, assets.git, assets.tailwind, assets.bootstrap, assets.chromedt, assets.nodejs, assets.postgresql, assets.postman
 ];
