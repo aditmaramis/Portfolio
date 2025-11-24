@@ -77,14 +77,15 @@ Visit:
 
 ## 📚 Documentation
 
-Comprehensive documentation is available:
+Comprehensive documentation is available in the `docs/` folder:
 
-- **[SETUP_CHECKLIST.md](./SETUP_CHECKLIST.md)** - Step-by-step setup checklist
-- **[ADMIN_SETUP.md](./ADMIN_SETUP.md)** - Complete setup guide
-- **[ADMIN_QUICK_REFERENCE.md](./ADMIN_QUICK_REFERENCE.md)** - Quick reference for daily use
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System architecture overview
-- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
-- **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - What was built
+- **[SETUP_CHECKLIST.md](./docs/SETUP_CHECKLIST.md)** - Step-by-step setup checklist
+- **[ADMIN_SETUP.md](./docs/ADMIN_SETUP.md)** - Complete setup guide
+- **[ADMIN_QUICK_REFERENCE.md](./docs/ADMIN_QUICK_REFERENCE.md)** - Quick reference for daily use
+- **[ARCHITECTURE.md](./docs/ARCHITECTURE.md)** - System architecture overview
+- **[TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[IMPLEMENTATION_SUMMARY.md](./docs/IMPLEMENTATION_SUMMARY.md)** - What was built
+- **[TYPESCRIPT_MIGRATION.md](./docs/TYPESCRIPT_MIGRATION.md)** - TypeScript conversion guide
 
 ## 📁 Project Structure
 
@@ -155,8 +156,8 @@ This project is open source and available for personal and commercial use.
 
 Having issues? Check these resources:
 
-1. Read [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
-2. Review [ADMIN_SETUP.md](./ADMIN_SETUP.md)
+1. Read [TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)
+2. Review [ADMIN_SETUP.md](./docs/ADMIN_SETUP.md)
 3. Check [Supabase Documentation](https://supabase.com/docs)
 4. Check [Next.js Documentation](https://nextjs.org/docs)
 

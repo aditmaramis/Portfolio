@@ -4,9 +4,11 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { createClient } from '@/lib/supabase/client';
+import type { Project } from '@/types';
+import type { ThemeProps } from '@/types';
 
-const Work = (isDarkMode) => {
-	const [projects, setProjects] = useState([]);
+const Work = ({ isDarkMode }: ThemeProps) => {
+	const [projects, setProjects] = useState<Project[]>([]);
 	const supabase = createClient();
 
 	useEffect(() => {

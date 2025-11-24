@@ -4,9 +4,10 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { createClient } from '@/lib/supabase/client';
+import type { Service } from '@/types';
 
 const Services = () => {
-	const [services, setServices] = useState([]);
+	const [services, setServices] = useState<Service[]>([]);
 	const supabase = createClient();
 
 	useEffect(() => {
