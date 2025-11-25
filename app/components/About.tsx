@@ -6,121 +6,113 @@ import type { ThemeProps } from '@/types';
 
 const About = ({ isDarkMode }: ThemeProps) => {
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			whileInView={{ opacity: 1 }}
-			transition={{ duration: 1 }}
+		<section
 			id="about"
-			className="w-full px-[12%} py-10 scroll-mt-20"
+			className="w-full px-[8%] py-10 scroll-mt-20"
 		>
-			<motion.h4
-				initial={{ opacity: 0, y: -20 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.5, delay: 0.3 }}
-				className="text-center mb-2 text-lg"
-			>
-				introduction
-			</motion.h4>
-			<motion.h2
-				initial={{ opacity: 0, y: -20 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.5, delay: 0.5 }}
-				className="text-center mb-10 text-5xl"
-			>
-				who i am..
-			</motion.h2>
-
-			<motion.div
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				transition={{ duration: 0.8 }}
-				className="flex w-full flex-col lg:flex-row items-center my-10"
-			>
+			<div className="max-w-7xl mx-auto">
+				{/* Header */}
 				<motion.div
-					initial={{ opacity: 0, scale: 0.9 }}
-					whileInView={{ opacity: 1, scale: 1 }}
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
-					className="w-64 sm:w-80 lg:ml-50 rounded-3xl max-w-none mb-10 lg:mb-0"
+					className="text-center mb-12"
 				>
-					<Image
-						priority={true}
-						src={isDarkMode ? assets.user_image_dark : assets.user_image}
-						alt="user"
-						className="w-full rounded-3xl border-transparent border-3"
-					/>
-				</motion.div>
-				<motion.div
-					initial={{ opacity: 0 }}
-					whileInView={{ opacity: 1 }}
-					transition={{ duration: 0.6, delay: 0.8 }}
-					className="flex-1 mx-10"
-				>
-					<p className="mb-10 max-w-2xl">
-						a former hotelier with over 10 years of experience, now reinvented
-						as a full stack web developer. my background in delivering
-						high-quality guest experiences translates into building intuitive,
-						user-focused digital solutions. i bring both people skills and
-						technical depth to every project, with a passion for creating tools
-						that are as elegant as they are effective.
+					<p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase mb-2">
+						Introduction
 					</p>
-					<motion.ul
-						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
-						transition={{ duration: 0.8, delay: 1 }}
-						className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl"
+					<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+						Who I Am
+					</h2>
+				</motion.div>
+
+				{/* Main Content Grid */}
+				<div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+					{/* Left Side - Info Cards */}
+					<motion.div
+						initial={{ opacity: 0, x: -20 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.6, delay: 0.2 }}
+						className="grid grid-cols-1 gap-6"
 					>
 						{infoList.map(({ icon, iconDark, title, description }, index) => (
-							<motion.li
-								whileHover={{ scale: 1.05 }}
-								className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-rose-50 hover:-translate-y-1 duration-500 hover:shadow-black hover:shadow-md dark:border-white dark:hover:shadow-white dark:hover:bg-zinc-500"
+							<motion.div
 								key={index}
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+								whileHover={{ y: -8 }}
+								className="group bg-white dark:bg-zinc-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:border-black dark:hover:border-white transition-all duration-300 hover:shadow-lg"
 							>
-								<Image
-									src={isDarkMode ? iconDark : icon}
-									alt={title}
-									className="w-7 mt-3"
-								/>
-								<h3 className="my-4 font-semibold text-gray-700 dark:text-white">
+								<div className="mb-4">
+									<Image
+										src={isDarkMode ? iconDark : icon}
+										alt={title}
+										className="w-8 h-8"
+									/>
+								</div>
+								<h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
 									{title}
 								</h3>
-								<p className="text-gray-600 text-sm dark:text-white/80">
+								<p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
 									{description}
 								</p>
-							</motion.li>
+							</motion.div>
 						))}
-					</motion.ul>
-					<motion.h4
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 1.3 }}
-						className="mb-1 my-6 text-gray-700 dark:text-white/80"
-					>
-						tools i use
-					</motion.h4>
+					</motion.div>
 
-					<motion.ul
-						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
-						transition={{ duration: 0.6, delay: 1.5 }}
-						className="flex items-center gap-3 sm:gap-5"
-					>
-						{toolsData.map((tool, index) => (
-							<motion.li
-								whileHover={{ scale: 1.1 }}
-								className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:shadow-black hover:shadow-md hover:bg-rose-50 hover:-translate-y-1 duration-500 dark:hover:bg-zinc-500 dark:hover:shadow-white"
-								key={index}
-							>
-								<Image
-									src={tool}
-									alt="tool"
-									className="w-5 sm:2-7"
-								/>
-							</motion.li>
-						))}
-					</motion.ul>
-				</motion.div>
-			</motion.div>
-		</motion.div>
+					{/* Right Side - Description and Tools */}
+					<div className="space-y-8">
+						<motion.div
+							initial={{ opacity: 0, x: 20 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.6, delay: 0.2 }}
+							className="lg:pl-8"
+						>
+							<p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+								A former hotelier with over 10 years of experience, now
+								reinvented as a full stack web developer. My background in
+								delivering high-quality guest experiences translates into
+								building intuitive, user-focused digital solutions. I bring both
+								people skills and technical depth to every project, with a
+								passion for creating tools that are as elegant as they are
+								effective.
+							</p>
+						</motion.div>
+
+						{/* Tools Section */}
+						<motion.div
+							initial={{ opacity: 0, x: 20 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.6, delay: 0.6 }}
+							className="lg:pl-8"
+						>
+							<h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+								Tools I Use
+							</h3>
+							<div className="flex flex-wrap gap-3">
+								{toolsData.map((tool, index) => (
+									<motion.div
+										key={index}
+										initial={{ opacity: 0, scale: 0.8 }}
+										whileInView={{ opacity: 1, scale: 1 }}
+										transition={{ duration: 0.4, delay: 0.7 + index * 0.05 }}
+										whileHover={{ scale: 1.1, y: -2 }}
+										className="bg-white dark:bg-zinc-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:border-black dark:hover:border-white transition-all duration-300"
+									>
+										<Image
+											src={tool}
+											alt="tool"
+											className="w-8 h-8"
+										/>
+									</motion.div>
+								))}
+							</div>
+						</motion.div>
+					</div>
+				</div>
+			</div>
+		</section>
 	);
 };
 

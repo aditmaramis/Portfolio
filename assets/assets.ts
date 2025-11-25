@@ -41,6 +41,7 @@ import right_arrow from './right-arrow.png';
 import send_icon from './send-icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
+import hero from './hero.svg';
 
 export const assets = {
     user_image,
@@ -67,6 +68,7 @@ export const assets = {
     mail_icon_dark,
     profile_img,
     download_icon,
+    hero,
     hand_icon,
     header_bg_color,
     moon_icon,
