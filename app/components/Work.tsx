@@ -26,74 +26,77 @@ const Work = ({ isDarkMode }: ThemeProps) => {
 		fetchProjects();
 	}, [supabase]);
 	return (
-		<motion.div
+		<motion.section
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1 }}
 			id="work"
-			className="w-full px-[12%} py-10 scroll-mt-20"
+			className="w-full px-[8%] py-10 scroll-mt-20"
 		>
-			<motion.h4
-				initial={{ y: -20, opacity: 0 }}
-				whileInView={{ y: 0, opacity: 1 }}
-				transition={{ delay: 0.3, duration: 1 }}
-				className="text-center mb-2 text-lg"
-			>
-				my portfolio
-			</motion.h4>
+			<div className="max-w-7xl mx-auto">
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.6 }}
+					className="text-center mb-12"
+				>
+					<p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase mb-2">
+						My Portfolio
+					</p>
+					<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+						What I Did
+					</h2>
+				</motion.div>
 
-			<motion.h2
-				initial={{ y: -20, opacity: 0 }}
-				whileInView={{ y: 0, opacity: 1 }}
-				transition={{ delay: 0.5, duration: 0.5 }}
-				className="text-center mb-10 text-5xl"
-			>
-				what i did..
-			</motion.h2>
+				<motion.p
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					transition={{ delay: 0.3, duration: 0.5 }}
+					className="text-center max-w-3xl mx-auto text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-12"
+				>
+					My capstone projects reflect how I love turning everyday challenges
+					into digital solutions. I built an event management website and an
+					online grocery website app with UI/UX that allows a smooth and
+					effortless experience — all built from scratch with modern full-stack
+					technologies.
+				</motion.p>
 
-			<motion.p
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				transition={{ delay: 0.7, duration: 0.5 }}
-				className="text-center max-w-2xl mx-auto mt-5 mb-12 px-10"
-			>
-				my capstone projects reflect how I love turning everyday challenges into
-				digital solutions. i built an event management website and an online
-				grocery website app with UI/UX that allows a smooth and effortless
-				experience — all built from scratch with modern full-stack technologies.
-			</motion.p>
-
-			<motion.div
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				transition={{ delay: 0.9, duration: 0.6 }}
-				className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] mx-10 my-15 lg:mx-50 gap-5 dark:text-black"
-			>
-				{projects.map((project, index) => (
-					<motion.div
-						whileHover={{ scale: 1.05 }}
-						transition={{ duration: 0.3 }}
-						key={project.id}
-						className="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-						style={{ backgroundImage: `url(${project.bg_image})` }}
-					>
-						<div className="bg-white w-10/12 rounded-md absolute mx-10 bottom-5 left 1/2 -translate-x-5 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-							<div>
-								<h2 className="text-sm font-semibold">{project.title}</h2>
-								<p className="text-xs text-gray-700">{project.description}</p>
+				<motion.div
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					transition={{ delay: 0.5, duration: 0.6 }}
+					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+				>
+					{projects.map((project, index) => (
+						<motion.div
+							whileHover={{ scale: 1.03 }}
+							transition={{ duration: 0.3 }}
+							key={project.id}
+							className="aspect-square bg-no-repeat bg-cover bg-center rounded-2xl relative cursor-pointer group overflow-hidden"
+							style={{ backgroundImage: `url(${project.bg_image})` }}
+						>
+							<div className="bg-white/95 dark:bg-gray-900/95 w-[85%] rounded-xl absolute left-1/2 -translate-x-1/2 bottom-4 py-4 px-5 flex items-center justify-between duration-300 group-hover:bottom-6">
+								<div>
+									<h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+										{project.title}
+									</h3>
+									<p className="text-xs text-gray-600 dark:text-gray-400">
+										{project.description}
+									</p>
+								</div>
+								<div className="border-2 rounded-full border-gray-900 dark:border-white w-9 aspect-square flex items-center justify-center group-hover:bg-black group-hover:border-black dark:group-hover:bg-white transition-all duration-300">
+									<Image
+										src={assets.send_icon}
+										alt="send icon"
+										className="w-4 group-hover:invert dark:invert dark:group-hover:invert-0 transition-all duration-300"
+									/>
+								</div>
 							</div>
-							<div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-								<Image
-									src={assets.send_icon}
-									alt="send icon"
-									className="w-5"
-								/>
-							</div>
-						</div>
-					</motion.div>
-				))}
-			</motion.div>
-		</motion.div>
+						</motion.div>
+					))}
+				</motion.div>
+			</div>
+		</motion.section>
 	);
 };
 

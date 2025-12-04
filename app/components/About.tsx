@@ -1,10 +1,53 @@
-import { assets, infoList, toolsData } from '@/assets/assets';
-import Image from 'next/image';
 import React from 'react';
 import { motion } from 'motion/react';
 import type { ThemeProps } from '@/types';
+import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
+import { NumberSnapper } from '@/components/ui/number-snapper';
+
+const testimonials = [
+	{
+		quote:
+			'Kicked off my hospitality career by learning alongside incredible individuals that shaped my mindset around precision, attention to detail, and continuous improvement.',
+		name: 'Culinary Intern',
+		designation: 'USA, 2011',
+		src: '/chef.webp',
+	},
+	{
+		quote:
+			'The chapter that strengthened my analytical thinking and ability to manage complex moving parts.',
+		name: 'Restaurant Supervisor',
+		designation: 'Indonesia/USA/UAE, 2014',
+		src: '/spv.webp',
+	},
+	{
+		quote:
+			'A stage where leadership became not just a responsibility, but a daily practice.',
+		name: 'Restaurant Manager',
+		designation: 'Seychelles, 2024',
+		src: '/mgr.webp',
+	},
+	{
+		quote:
+			'The shift into web development started by joining a coding bootcamp, where I learned the fundamentals of software engineering.',
+		name: 'Hotelier Reinvented',
+		designation: 'Indonesia, 2025',
+		src: '/jcwd.webp',
+	},
+];
+
+// Timeline events for the career journey
+const careerTimeline: Record<number, string> = {
+	2011: 'Started as a Culinary Intern in the USA',
+	2014: 'Promoted to Restaurant Supervisor',
+	2016: 'Relocated to UAE for new opportunities',
+	2020: 'Navigated the industry through challenging times',
+	2024: 'Became Restaurant Manager in Seychelles',
+	2025: 'Career pivot into Full Stack Web Development',
+};
 
 const About = ({ isDarkMode }: ThemeProps) => {
+	const paragraphColor = isDarkMode ? 'text-gray-300' : 'text-gray-700';
+
 	return (
 		<section
 			id="about"
@@ -28,40 +71,16 @@ const About = ({ isDarkMode }: ThemeProps) => {
 
 				{/* Main Content Grid */}
 				<div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-					{/* Left Side - Info Cards */}
-					<motion.div
-						initial={{ opacity: 0, x: -20 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.6, delay: 0.2 }}
-						className="grid grid-cols-1 gap-6"
-					>
-						{infoList.map(({ icon, iconDark, title, description }, index) => (
-							<motion.div
-								key={index}
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-								whileHover={{ y: -8 }}
-								className="group bg-white dark:bg-zinc-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:border-black dark:hover:border-white transition-all duration-300 hover:shadow-lg"
-							>
-								<div className="mb-4">
-									<Image
-										src={isDarkMode ? iconDark : icon}
-										alt={title}
-										className="w-8 h-8"
-									/>
-								</div>
-								<h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
-									{title}
-								</h3>
-								<p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-									{description}
-								</p>
-							</motion.div>
-						))}
-					</motion.div>
+					{/* Left Column - Testimonials Carousel */}
+					<div className="flex justify-center lg:justify-start lg:-mt-12">
+						<AnimatedTestimonials
+							autoplay
+							testimonials={testimonials}
+							className="w-full"
+						/>
+					</div>
 
-					{/* Right Side - Description and Tools */}
+					{/* Right Column - Description */}
 					<div className="space-y-8">
 						<motion.div
 							initial={{ opacity: 0, x: 20 }}
@@ -69,45 +88,34 @@ const About = ({ isDarkMode }: ThemeProps) => {
 							transition={{ duration: 0.6, delay: 0.2 }}
 							className="lg:pl-8"
 						>
-							<p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+							<p
+								className={`text-lg md:text-xl leading-relaxed ${paragraphColor}`}
+							>
 								A former hotelier with over 10 years of experience, now
 								reinvented as a full stack web developer. My background in
 								delivering high-quality guest experiences translates into
 								building intuitive, user-focused digital solutions. I bring both
-								people skills and technical depth to every project, with a
-								passion for creating tools that are as elegant as they are
-								effective.
+								people skills and technical depth to every project, by focusing
+								on crafting delightful user journeys, building performant
+								frontends, and shipping dependable backends.
 							</p>
 						</motion.div>
 
-						{/* Tools Section */}
+						{/* Timeline Slider */}
 						<motion.div
-							initial={{ opacity: 0, x: 20 }}
-							whileInView={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.6, delay: 0.6 }}
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6, delay: 0.4 }}
 							className="lg:pl-8"
 						>
-							<h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-								Tools I Use
-							</h3>
-							<div className="flex flex-wrap gap-3">
-								{toolsData.map((tool, index) => (
-									<motion.div
-										key={index}
-										initial={{ opacity: 0, scale: 0.8 }}
-										whileInView={{ opacity: 1, scale: 1 }}
-										transition={{ duration: 0.4, delay: 0.7 + index * 0.05 }}
-										whileHover={{ scale: 1.1, y: -2 }}
-										className="bg-white dark:bg-zinc-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:border-black dark:hover:border-white transition-all duration-300"
-									>
-										<Image
-											src={tool}
-											alt="tool"
-											className="w-8 h-8"
-										/>
-									</motion.div>
-								))}
-							</div>
+							<NumberSnapper
+								label="My Journey Timeline"
+								min={2011}
+								max={2025}
+								step={1}
+								data={careerTimeline}
+								variant="timeline"
+							/>
 						</motion.div>
 					</div>
 				</div>

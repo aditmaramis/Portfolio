@@ -28,7 +28,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: ThemeProps) => {
 	return (
 		<>
 			<nav
-				className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${
+				className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-[1000] ${
 					isScroll
 						? 'bg-white/30 backdrop-blur-lg dark:bg-transparent dark:shadow-white/20'
 						: ''

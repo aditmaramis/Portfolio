@@ -39,3 +39,12 @@
 .marquee-row:hover {
 	animation-play-state: paused;
 }
+
+/* Hide scrollbar for number snapper */
+.scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
