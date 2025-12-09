@@ -38,8 +38,10 @@ const testimonials = [
 // Timeline events for the career journey
 const careerTimeline: Record<number, string> = {
 	2011: 'Started as a Culinary Intern in the USA',
+    2013: 'Graduated with BA in International Hotel and Events Management',
 	2014: 'Promoted to Restaurant Supervisor',
-	2016: 'Relocated to UAE for new opportunities',
+	2017: 'Back to the USA for new opportunities',
+    2018: 'Broaden my experience by relocating to the UAE',
 	2020: 'Navigated the industry through challenging times',
 	2024: 'Became Restaurant Manager in Seychelles',
 	2025: 'Career pivot into Full Stack Web Development',
@@ -89,7 +91,7 @@ const About = ({ isDarkMode }: ThemeProps) => {
 							className="lg:pl-8"
 						>
 							<p
-								className={`text-lg md:text-xl leading-relaxed ${paragraphColor}`}
+								className={`text-lg md:text-lg leading-relaxed ${paragraphColor}`}
 							>
 								A former hotelier with over 10 years of experience, now
 								reinvented as a full stack web developer. My background in

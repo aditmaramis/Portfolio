@@ -58,13 +58,13 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: ThemeProps) => {
 						<a href="#top">home</a>
 					</li>
 					<li>
-						<a href="#about">about me</a>
+						<a href="#about">about</a>
 					</li>
 					<li>
-						<a href="#services">services</a>
+						<a href="#services">skills</a>
 					</li>
 					<li>
-						<a href="#work">my work</a>
+						<a href="#work">projects</a>
 					</li>
 				</ul>
 

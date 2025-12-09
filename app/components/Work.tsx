@@ -41,7 +41,7 @@ const Work = ({ isDarkMode }: ThemeProps) => {
 					className="text-center mb-12"
 				>
 					<p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase mb-2">
-						My Portfolio
+						Projects
 					</p>
 					<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
 						What I Did
