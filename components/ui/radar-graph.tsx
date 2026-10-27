@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useId, useRef, useState, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 
@@ -110,16 +110,11 @@ export const RadarGraph = ({
 		return () => clearTimeout(timeout);
 	}, []);
 
-	// Create pattern ID unique to this instance
-	const patternId = useRef(
-		`radar-pattern-${Math.random().toString(36).substr(2, 9)}`
-	);
-	const maskId = useRef(
-		`radar-mask-${Math.random().toString(36).substr(2, 9)}`
-	);
-	const gradientId = useRef(
-		`radar-gradient-${Math.random().toString(36).substr(2, 9)}`
-	);
+	// Stable across server and client render, so SVG ids match during hydration
+	const instanceId = useId().replace(/:/g, '');
+	const patternId = `radar-pattern-${instanceId}`;
+	const maskId = `radar-mask-${instanceId}`;
+	const gradientId = `radar-gradient-${instanceId}`;
 
 	return (
 		<svg
@@ -132,7 +127,7 @@ export const RadarGraph = ({
 			<defs>
 				{/* Diagonal stripe pattern */}
 				<pattern
-					id={patternId.current}
+					id={patternId}
 					patternUnits="userSpaceOnUse"
 					width="10"
 					height="10"
@@ -148,7 +143,7 @@ export const RadarGraph = ({
 
 				{/* Radial gradient for the filled area */}
 				<radialGradient
-					id={gradientId.current}
+					id={gradientId}
 					cx="0.5"
 					cy="0.65"
 					r="0.6"
@@ -166,12 +161,12 @@ export const RadarGraph = ({
 				</radialGradient>
 
 				{/* Mask with pattern - dynamic */}
-				<mask id={maskId.current}>
+				<mask id={maskId}>
 					<motion.path
 						fillRule="evenodd"
 						clipRule="evenodd"
-						fill={`url(#${patternId.current})`}
-						d={getPathD(hoveredDot)}
+						fill={`url(#${patternId})`}
+						initial={{ d: getPathD(null) }}
 						animate={{ d: getPathD(hoveredDot) }}
 						transition={{ duration: 0.3, ease: 'easeOut' }}
 					/>
@@ -192,21 +187,21 @@ export const RadarGraph = ({
 				<motion.path
 					fillRule="evenodd"
 					clipRule="evenodd"
-					fill={`url(#${gradientId.current})`}
-					mask={`url(#${maskId.current})`}
-					d={getPathD(hoveredDot)}
+					fill={`url(#${gradientId})`}
+					mask={`url(#${maskId})`}
+					initial={{ d: getPathD(null) }}
 					animate={{ d: getPathD(hoveredDot) }}
 					transition={{ duration: 0.3, ease: 'easeOut' }}
 				/>
 
 				{/* Connecting lines - animated path for smooth animation */}
 				<motion.path
-					d={getPathD(hoveredDot)}
+					initial={{ d: getPathD(null) }}
+					animate={{ d: getPathD(hoveredDot) }}
 					fill="none"
 					className="stroke-amber-400 dark:stroke-amber-500"
 					strokeWidth="4"
 					strokeLinejoin="round"
-					animate={{ d: getPathD(hoveredDot) }}
 					transition={{ duration: 0.3, ease: 'easeOut' }}
 				/>
 
