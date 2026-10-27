@@ -1,10 +1,9 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { createClient } from '@/lib/supabase/client';
-import type { Service } from '@/types';
 import { RadarGraph } from '@/components/ui/radar-graph';
 import { TextScramble } from '@/components/ui/text-scramble';
+import SectionHeader from './SectionHeader';
 
 const scramblePhrases = [
 	'Code smarter, not harder.',
@@ -15,24 +14,6 @@ const scramblePhrases = [
 ];
 
 const Services = () => {
-	const [services, setServices] = useState<Service[]>([]);
-	const supabase = createClient();
-
-	useEffect(() => {
-		const fetchServices = async () => {
-			const { data, error } = await supabase
-				.from('services')
-				.select('*')
-				.order('order_index', { ascending: true });
-
-			if (!error && data) {
-				setServices(data);
-			}
-		};
-
-		fetchServices();
-	}, [supabase]);
-
 	return (
 		<motion.section
 			initial={{ opacity: 0 }}
@@ -42,19 +23,7 @@ const Services = () => {
 			className="w-full px-[8%] py-10 scroll-mt-20"
 		>
 			<div className="max-w-7xl mx-auto">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-					className="text-center mb-12"
-				>
-					<p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase mb-2">
-						Skills
-					</p>
-					<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-						What I Do
-					</h2>
-				</motion.div>
+				<SectionHeader eyebrow="Skills" title="What I Do" />
 
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
 					<motion.p

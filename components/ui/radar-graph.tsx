@@ -350,4 +350,3 @@ export const RadarGraph = ({
 	);
 };
 
-export default RadarGraph;

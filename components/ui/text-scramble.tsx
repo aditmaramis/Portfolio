@@ -116,4 +116,3 @@ export const TextScramble = ({
 	);
 };
 
-export default TextScramble;

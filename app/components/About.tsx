@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import type { ThemeProps } from '@/types';
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
 import { NumberSnapper } from '@/components/ui/number-snapper';
+import SectionHeader from './SectionHeader';
 
 const testimonials = [
 	{
@@ -56,20 +57,7 @@ const About = ({ isDarkMode }: ThemeProps) => {
 			className="w-full px-[8%] py-10 scroll-mt-20"
 		>
 			<div className="max-w-7xl mx-auto">
-				{/* Header */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-					className="text-center mb-12"
-				>
-					<p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium tracking-wider uppercase mb-2">
-						Introduction
-					</p>
-					<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-						Who I Am
-					</h2>
-				</motion.div>
+				<SectionHeader eyebrow="Introduction" title="Who I Am" />
 
 				{/* Main Content Grid */}
 				<div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">

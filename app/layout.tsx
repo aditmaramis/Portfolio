@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Outfit } from 'next/font/google';
 import './globals.css';
 
@@ -11,7 +12,7 @@ export const metadata = {
 	description: '',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html
 			lang="en"

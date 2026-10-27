@@ -65,38 +65,3 @@ export const assets = {
     right_arrow_bold,
     right_arrow_bold_dark
 };
-
-export const workData = [
-    {
-        title: 'frontend',
-        description: 'web design',
-        bgImage: '/work-1.webp',
-    },
-    {
-        title: 'geo based app',
-        description: 'mobile app',
-        bgImage: '/work-2.webp',
-    },
-    {
-        title: 'photography',
-        description: 'web design',
-        bgImage: '/work-3.webp',
-    },
-    {
-        title: 'UI/UX designing',
-        description: 'UI/UX design',
-        bgImage: '/work-4.webp',
-    },
-]
-
-export const serviceData = [
-    { icon: assets.web_icon, title: 'full stack web app', description: 'building and programming website', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience', link: '' },
-    { icon: assets.graphics_icon, title: 'graphics design', description: 'creative design solutions to enhance visual communication', link: '' },
-]
-
-export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'languages', description: 'HTML, CSS, JavaScript React Js, Next Js' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'education', description: 'full stack web development' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'projects', description: 'built a couple of capstone projects, more on the way..' }
-];

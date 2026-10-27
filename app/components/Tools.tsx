@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import type { ThemeProps } from '@/types';
 
 // Define logos with individual sizes
 const toolLogos = [
@@ -26,7 +25,7 @@ const toolLogos = [
 	{ src: '/logos/chatgpt.svg', size: 'w-16 h-16 md:w-20 md:h-20' },
 ];
 
-const Tools = ({ isDarkMode }: ThemeProps) => {
+const Tools = () => {
 	const topRow = toolLogos.slice(0, 10);
 	const bottomRow = toolLogos.slice(10);
 

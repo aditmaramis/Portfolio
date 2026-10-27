@@ -1,18 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { assets } from '@/assets/assets';
-import type { ThemeProps } from '@/types';
+import type { ThemeToggleProps } from '@/types';
 
-const Navbar = ({ isDarkMode, setIsDarkMode }: ThemeProps) => {
+const Navbar = ({ isDarkMode, setIsDarkMode }: ThemeToggleProps) => {
 	const [isScroll, setIsScroll] = useState(false);
-	const sideMenuRef = useRef();
+	const sideMenuRef = useRef<HTMLDivElement>(null);
 
 	const openMenu = () => {
-		sideMenuRef.current.style.transform = 'translateX(-16rem)';
+		if (sideMenuRef.current) {
+			sideMenuRef.current.style.transform = 'translateX(-16rem)';
+		}
 	};
 
 	const closeMenu = () => {
-		sideMenuRef.current.style.transform = 'translateX(16rem)';
+		if (sideMenuRef.current) {
+			sideMenuRef.current.style.transform = 'translateX(16rem)';
+		}
 	};
 
 	useEffect(() => {
